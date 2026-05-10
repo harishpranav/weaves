@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "WEAVES — Premium Tailoring & Stitching Services",
+  title: "WEAVES - Premium Tailoring & Stitching Services",
   description:
     "Handcrafted stitching for men, women, and kids. Wholesale and boutique quality at reasonable prices. Custom designs, alterations, and more.",
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
@@ -14,10 +16,15 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 bg-black/80 backdrop-blur-md border-b border-gold/10">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="#home" className="flex items-center gap-3">
-          <span className="text-xl">✂️</span>
-          <span className="font-display text-2xl text-shimmer italic tracking-wider">
-            Weaves
-          </span>
+          <Image
+            src="/logo.png"
+            alt="Weaves logo"
+            width={42}
+            height={42}
+            className="h-10 w-10 rounded-full object-cover border border-gold/30"
+            priority
+          />
+          <span className="font-display text-2xl text-shimmer italic tracking-wider">Weaves</span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-10">

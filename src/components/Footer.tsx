@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const footerLinks = {
   Services: ["Custom Stitching", "Wholesale Orders", "Boutique Collection", "Alterations"],
   Quick: ["Home", "Pricing", "Gallery", "Contact"],
@@ -13,20 +15,23 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-lg">✂️</span>
+              <Image
+                src="/logo.png"
+                alt="Weaves logo"
+                width={48}
+                height={48}
+                className="h-11 w-11 rounded-full object-cover border border-gold/30"
+              />
               <span className="font-display text-2xl text-shimmer italic">Weaves</span>
             </div>
             <p className="text-beige/30 text-sm leading-relaxed font-light">
-              Handcrafted stitching for every occasion. Quality you can feel,
-              prices that make sense.
+              Handcrafted stitching for every occasion. Quality you can feel, prices that make sense.
             </p>
           </div>
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-shimmer text-xs uppercase tracking-widest mb-4">
-                {category}
-              </h4>
+              <h4 className="text-shimmer text-xs uppercase tracking-widest mb-4">{category}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
@@ -44,9 +49,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gold/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-beige/20 text-xs">
-            © {new Date().getFullYear()} Weaves. All rights reserved.
-          </p>
+          <p className="text-beige/20 text-xs">© {new Date().getFullYear()} Weaves. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="text-beige/20 text-xs hover:text-gold transition-colors">
               Privacy
