@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-gold: #c9a84c;
+  --color-gold-light: #e8d5a3;
+  --color-gold-dark: #a68932;
+  --color-gold-bright: #f0d78c;
+  --color-beige: #f5f0e8;
+  --color-beige-dark: #e8dfd0;
+  --color-black: #000000;
+  --color-black-light: #0a0a0a;
+  --color-white: #fafafa;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+
+@theme {
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-bright: var(--color-gold-bright);
+  --color-beige: var(--color-beige);
+  --color-beige-dark: var(--color-beige-dark);
+  --color-black: var(--color-black);
+  --color-black-light: var(--color-black-light);
+  --color-white: var(--color-white);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #000000;
+  color: var(--color-beige);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes shimmer-slow {
+  0% {
+    background-position: -400% 0;
+  }
+  100% {
+    background-position: 400% 0;
+  }
+}
+
+@keyframes gold-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(201, 168, 76, 0.3), 0 0 20px rgba(201, 168, 76, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.5), 0 0 40px rgba(201, 168, 76, 0.2);
+  }
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold-bright) 25%,
+    var(--color-gold) 50%,
+    var(--color-gold-bright) 75%,
+    var(--color-gold-dark) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.shimmer-slow {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold-bright) 25%,
+    var(--color-gold) 50%,
+    var(--color-gold-bright) 75%,
+    var(--color-gold-dark) 100%
+  );
+  background-size: 400% 100%;
+  animation: shimmer-slow 6s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold-bright) 25%,
+    var(--color-gold) 50%,
+    var(--color-gold-bright) 75%,
+    var(--color-gold-dark) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shimmer-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 168, 76, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.gold-glow {
+  animation: gold-glow 2s ease-in-out infinite;
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold-bright) 20%,
+    var(--color-gold) 40%,
+    var(--color-gold-bright) 60%,
+    var(--color-gold) 80%,
+    var(--color-gold-dark) 100%
+  );
+  background-size: 200% auto;
+  animation: text-shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

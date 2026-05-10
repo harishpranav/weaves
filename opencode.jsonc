@@ -1,0 +1,38 @@
+﻿{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "myprovider/your-model-id",
+  "small_model": "myprovider/your-model-id",
+  "provider": {
+    "myprovider": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "My Provider",
+      "models": {
+        "your-model-id": {
+          "name": "Your Model"
+        }
+      },
+      "options": {
+        "apiKey": "{env:OPENCODE_API_KEY}",
+        "baseURL": "{env:OPENCODE_BASE_URL}",
+        "headers": {
+          "x-api-key": "{env:OPENCODE_API_KEY}"
+        }
+      }
+    }
+  },
+  "mcp": {
+    "MiniMax": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "minimax-coding-plan-mcp",
+        "-y"
+      ],
+      "enabled": true,
+      "environment": {
+        "MINIMAX_API_KEY": "sk-cp-cD3xz3-pZM4XevYa7v-6PQV8jHGw6yXgX_vG6I6A3Yk1xZVMBf6wP7f55vugWLhzA2xdmyFOL6alpSnwGXnERioN695kxWReBjT0H9PggWHrCRplfnekGNE",
+        "MINIMAX_API_HOST": "https://api.minimax.io"
+      }
+    }
+  }
+}
