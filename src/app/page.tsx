@@ -1,11 +1,8 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Pricing from "@/components/Pricing";
-import Gallery from "@/components/Gallery";
-import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
+import WhyWeaves from "@/components/WhyWeaves";
+import ClientLogos from "@/components/ClientLogos";
+import HomeCTA from "@/components/HomeCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,12 +10,9 @@ export default function Home() {
     <main className="relative bg-black min-h-screen">
       <Navigation />
       <Hero />
-      <Services />
-      <Pricing />
-      <Gallery />
-      <Process />
-      <Testimonials />
-      <Contact />
+      <WhyWeaves />
+      <ClientLogos />
+      <HomeCTA />
       <Footer />
     </main>
   );

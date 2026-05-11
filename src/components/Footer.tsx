@@ -1,10 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = {
+  Pages: [
+    { label: "Home", href: "/" },
+    { label: "Lookbook", href: "/lookbook" },
+    { label: "Boutique", href: "/boutique" },
+    { label: "Garment Hub", href: "/garment-hub" },
+  ],
   Services: ["Custom Stitching", "Wholesale Orders", "Boutique Collection", "Alterations"],
-  Quick: ["Home", "Pricing", "Gallery", "Contact"],
   Support: ["FAQ", "Size Guide", "Care Instructions", "Terms"],
 };
 
@@ -14,15 +20,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <Image
-                src="/logo.png"
-                alt="Weaves logo"
-                width={48}
-                height={48}
-                className="h-11 w-11 rounded-full object-cover border border-gold/30"
-              />
-              <span className="font-display text-2xl text-shimmer italic">Weaves</span>
+            <div className="mb-4">
+              <Link href="/">
+                <Image
+                  src="/logo.png"
+                  alt="Weaves logo"
+                  width={132}
+                  height={52}
+                  className="h-11 w-auto object-contain"
+                />
+              </Link>
             </div>
             <p className="text-beige/30 text-sm leading-relaxed font-light">
               Handcrafted stitching for every occasion. Quality you can feel, prices that make sense.
@@ -34,13 +41,22 @@ export default function Footer() {
               <h4 className="text-shimmer text-xs uppercase tracking-widest mb-4">{category}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-beige/30 text-sm hover:text-gold transition-colors font-light"
-                    >
-                      {link}
-                    </a>
+                  <li key={typeof link === "string" ? link : link.label}>
+                    {typeof link === "string" ? (
+                      <a
+                        href="#"
+                        className="text-beige/30 text-sm hover:text-gold transition-colors font-light"
+                      >
+                        {link}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-beige/30 text-sm hover:text-gold transition-colors font-light"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -49,7 +65,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gold/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-beige/20 text-xs">© {new Date().getFullYear()} Weaves. All rights reserved.</p>
+          <p className="text-beige/20 text-xs">&copy; {new Date().getFullYear()} Weaves. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="text-beige/20 text-xs hover:text-gold transition-colors">
               Privacy

@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -45,44 +46,53 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="font-display text-7xl md:text-[5rem] lg:text-[8rem] text-white mb-8 leading-[0.9] tracking-tight"
+          className="font-display text-6xl md:text-[5rem] lg:text-[7rem] text-white mb-8 leading-[0.95] tracking-tight"
         >
-          <span className="text-shimmer italic">Weaves</span>
+          Crafted for <span className="text-shimmer italic">You</span>
           <br />
-          <span className="font-light text-beige/90">of Elegance</span>
+          <span className="font-light text-beige/90">Scaled for Business</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-beige/60 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light"
+          className="text-beige/60 text-lg md:text-xl max-w-2xl mx-auto mb-16 leading-relaxed font-light"
         >
-          Handcrafted tailoring for men, women, and kids. Wholesale and boutique
-          quality at prices that respect your vision.
+          Whether you need a single custom piece or bulk production at scale — Weaves delivers quality, precision, and value.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
         >
-          <a
-            href="#pricing"
-            className="group relative px-10 py-4 overflow-hidden shimmer-border"
+          <Link
+            href="/boutique"
+            className="group relative px-8 py-6 overflow-hidden border border-gold/30 hover:border-gold/60 transition-all duration-500"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-gold-dark via-gold to-gold-bright shimmer" />
-            <span className="relative z-10 text-black font-medium tracking-wide uppercase text-sm">
-              View Pricing
-            </span>
-          </a>
-          <a
-            href="#contact"
-            className="px-10 py-4 border border-gold/50 text-gold hover:bg-gold/10 transition-all duration-300 tracking-wide uppercase text-sm gold-glow"
+            <div className="absolute inset-0 bg-gradient-to-b from-gold/10 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative z-10">
+              <span className="text-xs text-beige/40 uppercase tracking-widest block mb-2">Funnel A</span>
+              <span className="text-shimmer text-lg md:text-xl font-display italic block mb-2">Get Your Dress Customized</span>
+              <span className="text-beige/50 text-xs">Custom tailoring for individuals →</span>
+            </div>
+            <div className="h-px bg-gradient-to-r from-transparent via-gold to-transparent w-0 group-hover:w-full transition-all duration-700 absolute bottom-0" />
+          </Link>
+
+          <Link
+            href="/garment-hub"
+            className="group relative px-8 py-6 overflow-hidden border border-gold/30 hover:border-gold/60 transition-all duration-500"
           >
-            Get in Touch
-          </a>
+            <div className="absolute inset-0 bg-gradient-to-b from-gold/10 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative z-10">
+              <span className="text-xs text-beige/40 uppercase tracking-widest block mb-2">Funnel B</span>
+              <span className="text-shimmer text-lg md:text-xl font-display italic block mb-2">Bulk Inquiry / B2B</span>
+              <span className="text-beige/50 text-xs">Wholesale & manufacturing →</span>
+            </div>
+            <div className="h-px bg-gradient-to-r from-transparent via-gold to-transparent w-0 group-hover:w-full transition-all duration-700 absolute bottom-0" />
+          </Link>
         </motion.div>
       </motion.div>
 
